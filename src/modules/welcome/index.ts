@@ -6,6 +6,8 @@ export default class extends Module {
 
 	@autobind
 	public install() {
+	    if(!config.welcomeEnabled) return;
+
 		const tl = this.ai.connection.useSharedConnection('localTimeline');
 
 		tl.on('note', this.onLocalNote);

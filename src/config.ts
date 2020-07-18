@@ -7,7 +7,9 @@ type Config = {
 	keywordInterval?: number;
 	reversiEnabled: boolean;
 	chartEnabled: boolean;
+    welcomeEnabled: boolean;
 	serverMonitoring: boolean;
+	mazeAutoPostEnabled: boolean;
 	mecab?: string;
 	mecabDic?: string;
 };

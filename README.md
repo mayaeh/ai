@@ -17,7 +17,9 @@ Misskey用の日本語Botです。
 	"keywordInterval": "キーワードを覚える間隔 (分, デフォルト60分)",
 	"chartEnabled": "チャート機能を無効化する場合は false を入れてください",
 	"reversiEnabled": "藍とリバーシで対局できる機能を有効にする場合は true を入れる (無効にする場合は false)",
+	"welcomeEnabled": "Misskeyにアカウントを作成して初めて投稿を行うと藍が知らせてくれる機能を有効にする場合は true を入れる (無効にする場合は false)",
 	"serverMonitoring": "サーバー監視の機能を有効にする場合は true を入れる (無効にする場合は false)",
+	"mazeAutoPostEnabled": "藍が迷路を毎日自動で投稿する機能を有効にする場合は true を入れる (無効にする場合は false)",
 	"mecab": "MeCab のインストールパス (ソースからインストールした場合、大体は /usr/local/bin/mecab)",
 	"mecabDic": "MeCab の辞書ファイルパス (オプション)"
 }
