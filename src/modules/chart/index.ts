@@ -11,7 +11,7 @@ export default class extends Module {
 
 	@autobind
 	public install() {
-		if (config.chartEnabled === false) return {};
+		if (!config.chartEnabled) return {};
 
 		this.post();
 		setInterval(this.post, 1000 * 60 * 3);
@@ -31,11 +31,15 @@ export default class extends Module {
 		data.lastPosted = date;
 		this.setData(data);
 
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		this.log('Time to chart');
 		const file = await this.genChart('notes');
 
 		this.log('Posting...');
 		this.ai.post({
+			visibility: visibility,
 			text: serifs.chart.post,
 			fileIds: [file.id]
 		});

@@ -1,6 +1,7 @@
 import autobind from 'autobind-decorator';
 import Module from '../../module';
 import Message from '../../message';
+import config from '../../config';
 //import serifs from '../../serifs';
 
 /**
@@ -25,7 +26,7 @@ export default class extends Module {
 	@autobind
 	public install() {
 		this.versionCheck();
-		setInterval(this.versionCheck, 60 * 1000);
+		setInterval(this.versionCheck, 60 * 60 * 1000);	// msec
 
 		return {
 			mentionHook: this.mentionHook
@@ -44,9 +45,16 @@ export default class extends Module {
 					let v = '';
 					v += (serverChanged ? '**' : '') + `${this.latest.server} → ${this.mfmVersion(fetched.server)}\n` + (serverChanged ? '**' : '');
 
-					console.log(`Version changed: ${v}`);
+					let visibility = config.defaultVisibility;
+					if (!visibility) visibility = 'public';
 
-					this.ai.post({ text: `【バージョンが変わりました】\n${v}` });
+					console.log(`Version changed: ${v}`);
+						if (config.versionCheckAutoPostEnabled) {
+							this.ai.post({
+								visibility: visibility,
+								text: `【バージョンが変わりました】\n${v}`
+							});
+						}
 				} else {
 					// 変更なし
 				}

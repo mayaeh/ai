@@ -3,11 +3,15 @@ type Config = {
 	i: string;
 	wsUrl: string;
 	apiUrl: string;
+	defaultVisibility: string;
 	keywordEnabled: boolean;
 	keywordInterval?: number;
 	reversiEnabled: boolean;
 	chartEnabled: boolean;
+	welcomeEnabled: boolean;
 	serverMonitoring: boolean;
+	mazeAutoPostEnabled: boolean;
+	versionCheckAutoPostEnabled: boolean;
 	mecab?: string;
 	mecabDic?: string;
 };

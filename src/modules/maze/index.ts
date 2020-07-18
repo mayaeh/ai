@@ -4,14 +4,17 @@ import serifs from '../../serifs';
 import { genMaze } from './gen-maze';
 import { renderMaze } from './render-maze';
 import Message from '../../message';
+import config from '../../config';
 
 export default class extends Module {
 	public readonly name = 'maze';
 
 	@autobind
 	public install() {
-		this.post();
-		setInterval(this.post, 1000 * 60 * 3);
+		if (config.mazeAutoPostEnabled) {
+		    this.post();
+			setInterval(this.post, 1000 * 60 * 3);
+		}
 
 		return {
 			mentionHook: this.mentionHook
@@ -31,8 +34,12 @@ export default class extends Module {
 		this.log('Time to maze');
 		const file = await this.genMazeFile(`${date}-${this.ai.account.id}`);
 
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		this.log('Posting...');
 		this.ai.post({
+			visibility: visibility,
 			text: serifs.maze.post,
 			fileIds: [file.id]
 		});
