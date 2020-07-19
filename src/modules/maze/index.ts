@@ -4,6 +4,7 @@ import serifs from '../../serifs';
 import { genMaze } from './gen-maze';
 import { renderMaze } from './render-maze';
 import Message from '../../message';
+import config from '../../config';
 
 export default class extends Module {
 	public readonly name = 'maze';
