@@ -193,7 +193,7 @@ export default class 藍 {
 
 		// Ignore message if the user is a bot
 		// To avoid infinity reply loop.
-		if (msg.user.isBot) {
+		if (msg.user.isBot && (!msg.user.isAdmin || !msg.user.isModerator)) {
 			return;
 		}
 
