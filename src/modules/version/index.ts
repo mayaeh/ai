@@ -25,10 +25,8 @@ export default class extends Module {
 
 	@autobind
 	public install() {
-		if (config.versionCheckAutoPostEnabled) {
-			this.versionCheck();
-			setInterval(this.versionCheck, 60 * 1000);
-		}
+		this.versionCheck();
+		setInterval(this.versionCheck, 60 * 60 * 1000);	// msec
 
 		return {
 			mentionHook: this.mentionHook
@@ -48,8 +46,9 @@ export default class extends Module {
 					v += (serverChanged ? '**' : '') + `${this.latest.server} → ${this.mfmVersion(fetched.server)}\n` + (serverChanged ? '**' : '');
 
 					console.log(`Version changed: ${v}`);
-
-					this.ai.post({ text: `【バージョンが変わりました】\n${v}` });
+						if (config.versionCheckAutoPostEnabled) {
+							this.ai.post({ text: `【バージョンが変わりました】\n${v}` });
+						}
 				} else {
 					// 変更なし
 				}
