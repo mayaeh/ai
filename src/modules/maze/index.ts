@@ -13,8 +13,8 @@ export default class extends Module {
 	public install() {
 		if (config.mazeAutoPostEnabled) {
 		    this.post();
+			setInterval(this.post, 1000 * 60 * 3);
 		}
-		setInterval(this.post, 1000 * 60 * 3);
 
 		return {
 			mentionHook: this.mentionHook

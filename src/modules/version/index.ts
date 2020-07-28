@@ -24,8 +24,10 @@ export default class extends Module {
 
 	@autobind
 	public install() {
-		this.versionCheck();
-		setInterval(this.versionCheck, 60 * 1000);
+		if (config.versionCheckAutoPostEnabled) {
+			this.versionCheck();
+			setInterval(this.versionCheck, 60 * 1000);
+		}
 
 		return {
 			mentionHook: this.mentionHook

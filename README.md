@@ -20,6 +20,7 @@ Misskey用の日本語Botです。
 	"welcomeEnabled": "Misskeyにアカウントを作成して初めて投稿を行うと藍が知らせてくれる機能を有効にする場合は true を入れる (無効にする場合は false)",
 	"serverMonitoring": "サーバー監視の機能を有効にする場合は true を入れる (無効にする場合は false)",
 	"mazeAutoPostEnabled": "藍が迷路を毎日自動で投稿する機能を有効にする場合は true を入れる (無効にする場合は false)",
+	"versionCheckAutoPostEnabled": "バージョンアップ自動通知の機能を有効にする場合は true を入れる (無効にする場合は false)",
 	"mecab": "MeCab のインストールパス (ソースからインストールした場合、大体は /usr/local/bin/mecab)",
 	"mecabDic": "MeCab の辞書ファイルパス (オプション)"
 }
