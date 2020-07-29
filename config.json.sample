@@ -1,0 +1,15 @@
+{
+	"host": "https://example.com",
+	"i": "",
+	"defaultVisibility": "followers",
+	"keywordEnabled": "true",
+	"keywordInterval": "60",
+	"chartEnabled": "false",
+	"welcomeEnabled": "false",
+	"reversiEnabled": "true",
+	"serverMonitoring": "false",
+	"mazeAutoPostEnabled": "false",
+	"versionCheckAutoPostEnabled": "false",
+	"mecab": "/usr/bin/mecab",
+	"mecabDic": "/var/lib/mecab/dic/juman-utf8/sys.dic"
+}
