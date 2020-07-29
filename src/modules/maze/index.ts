@@ -34,8 +34,12 @@ export default class extends Module {
 		this.log('Time to maze');
 		const file = await this.genMazeFile(`${date}-${this.ai.account.id}`);
 
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		this.log('Posting...');
 		this.ai.post({
+			visibility: visibility,
 			text: serifs.maze.post,
 			fileIds: [file.id]
 		});

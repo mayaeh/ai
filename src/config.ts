@@ -3,6 +3,7 @@ type Config = {
 	i: string;
 	wsUrl: string;
 	apiUrl: string;
+	defaultVisibility: string;
 	keywordEnabled: boolean;
 	keywordInterval?: number;
 	reversiEnabled: boolean;
