@@ -31,11 +31,15 @@ export default class extends Module {
 		data.lastPosted = date;
 		this.setData(data);
 
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		this.log('Time to chart');
 		const file = await this.genChart('notes');
 
 		this.log('Posting...');
 		this.ai.post({
+			visibility: visibility,
 			text: serifs.chart.post,
 			fileIds: [file.id]
 		});
