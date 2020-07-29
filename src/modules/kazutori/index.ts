@@ -3,6 +3,7 @@ import * as loki from 'lokijs';
 import Module from '../../module';
 import Message from '../../message';
 import serifs from '../../serifs';
+import config from '../../config';
 
 type User = {
 	id: string;
@@ -68,7 +69,11 @@ export default class extends Module {
 			}
 		}
 
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		const post = await this.ai.post({
+			visibility: visibility,
 			text: serifs.kazutori.intro(limitMinutes)
 		});
 
@@ -173,12 +178,15 @@ export default class extends Module {
 		game.isEnded = true;
 		this.games.update(game);
 
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		this.log('Kazutori game finished');
 
 		// お流れ
 		if (game.votes.length <= 0) {
 			this.ai.post({
-				visibility: 'public',
+				visibility: visibility,
 				text: serifs.kazutori.onagare,
 				renoteId: game.postId
 			});
@@ -218,7 +226,7 @@ export default class extends Module {
 			: serifs.kazutori.finishWithNoWinner);
 
 		this.ai.post({
-			visibility: 'public',
+			visibility: visibility,
 			text: text,
 			cw: serifs.kazutori.finish,
 			renoteId: game.postId

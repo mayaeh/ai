@@ -18,10 +18,13 @@ export default class extends Module {
 
 	@autobind
 	private onLocalNote(note: any) {
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		if (note.isFirstNote) {
 			setTimeout(() => {
 				this.ai.api('notes/create', {
-					visibility: 'public',
+					visibility: visibility,
 					text: '新規さんを見つけました',
 					renoteId: note.id
 				});

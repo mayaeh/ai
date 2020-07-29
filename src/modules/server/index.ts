@@ -70,7 +70,11 @@ export default class extends Module {
 		this.lastWarnedAt = now;
 		//#endregion
 
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		this.ai.post({
+			visibility: visibility,
 			text: serifs.server.cpu
 		});
 

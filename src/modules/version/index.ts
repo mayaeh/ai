@@ -45,9 +45,15 @@ export default class extends Module {
 					let v = '';
 					v += (serverChanged ? '**' : '') + `${this.latest.server} → ${this.mfmVersion(fetched.server)}\n` + (serverChanged ? '**' : '');
 
+					let visibility = config.defaultVisibility;
+					if (!visibility) visibility = 'public';
+
 					console.log(`Version changed: ${v}`);
 						if (config.versionCheckAutoPostEnabled) {
-							this.ai.post({ text: `【バージョンが変わりました】\n${v}` });
+							this.ai.post({
+								visibility: visibility,
+								text: `【バージョンが変わりました】\n${v}`
+							});
 						}
 				} else {
 					// 変更なし
