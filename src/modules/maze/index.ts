@@ -11,10 +11,10 @@ export default class extends Module {
 
 	@autobind
 	public install() {
-		if (config.mazeAutoPostEnabled) {
-		    this.post();
-			setInterval(this.post, 1000 * 60 * 3);
-		}
+		if (!config.mazeEnabled) return {};
+
+		this.post();
+		setInterval(this.post, 1000 * 60 * 3);
 
 		return {
 			mentionHook: this.mentionHook
