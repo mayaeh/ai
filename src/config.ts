@@ -10,7 +10,7 @@ type Config = {
 	chartEnabled: boolean;
 	welcomeEnabled: boolean;
 	serverMonitoring: boolean;
-	mazeEnabled: boolean;
+	mazeAutoPostEnabled: boolean;
 	versionCheckAutoPostEnabled: boolean;
 	mecab?: string;
 	mecabDic?: string;
