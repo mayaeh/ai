@@ -2,6 +2,7 @@ import autobind from 'autobind-decorator';
 import Module from '../../module';
 import serifs from '../../serifs';
 import { genItem } from '../../vocabulary';
+import config from '../../config';
 
 export default class extends Module {
 	public readonly name = 'noting';
@@ -33,7 +34,11 @@ export default class extends Module {
 
 		const note = notes[Math.floor(Math.random() * notes.length)];
 
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		this.ai.post({
+			visibility: visibility,
 			text: typeof note === 'function' ? note() : note
 		});
 	}
