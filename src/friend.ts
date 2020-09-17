@@ -3,6 +3,7 @@ import 藍 from './ai';
 import IModule from './module';
 import getDate from './utils/get-date';
 import { User } from './misskey/user';
+import { genItem } from './vocabulary';
 
 export type FriendDoc = {
 	userId: string;
@@ -13,6 +14,7 @@ export type FriendDoc = {
 	todayLoveIncrements?: number;
 	perModulesData?: any;
 	married?: boolean;
+	transferCode?: string;
 };
 
 export default class Friend {
@@ -136,5 +138,34 @@ export default class Friend {
 	@autobind
 	public save() {
 		this.ai.friends.update(this.doc);
+	}
+
+	@autobind
+	public generateTransferCode(): string {
+		const code = genItem();
+
+		this.doc.transferCode = code;
+		this.save();
+
+		return code;
+	}
+
+	@autobind
+	public transferMemory(code: string): boolean {
+		const src = this.ai.friends.findOne({
+			transferCode: code
+		});
+
+		if (src == null) return false;
+
+		this.doc.name = src.name;
+		this.doc.love = src.love;
+		this.doc.married = src.married;
+		this.doc.perModulesData = src.perModulesData;
+		this.save();
+
+		// TODO: 合言葉を忘れる
+
+		return true;
 	}
 }

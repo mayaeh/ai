@@ -5,6 +5,7 @@ import config from './config';
 import _log from './utils/log';
 
 import CoreModule from './modules/core';
+import TalkModule from './modules/talk';
 import BirthdayModule from './modules/birthday';
 import ReversiModule from './modules/reversi';
 import PingModule from './modules/ping';
@@ -23,6 +24,8 @@ import FollowModule from './modules/follow';
 import ValentineModule from './modules/valentine';
 import MazeModule from './modules/maze';
 import ChartModule from './modules/chart';
+import SleepReportModule from './modules/sleep-report';
+import NotingModule from './modules/noting';
 
 import * as chalk from 'chalk';
 import fetch from 'node-fetch';
@@ -70,6 +73,7 @@ promiseRetry(retry => {
 
 	// 藍起動
 	new 藍(account, [
+		new CoreModule(),
 		new EmojiModule(),
 		new EmojiReactModule(),
 		new FortuneModule(),
@@ -78,7 +82,7 @@ promiseRetry(retry => {
 		new ReversiModule(),
 		new TimerModule(),
 		new DiceModule(),
-		new CoreModule(),
+		new TalkModule(),
 		new PingModule(),
 		new WelcomeModule(),
 		new ServerModule(),
@@ -89,6 +93,8 @@ promiseRetry(retry => {
 		new VersionModule(),
 		new MazeModule(),
 		new ChartModule(),
+		new SleepReportModule(),
+		new NotingModule(),
 	]);
 }).catch(e => {
 	log(chalk.red('Failed to fetch the account'));
