@@ -17,6 +17,8 @@ export default class extends Module {
 
 	@autobind
 	public install() {
+		if(!config.pollEnabled) return {};
+
 		if (config.keywordEnabled) {
 			this.learnedKeywords = this.ai.getCollection('_keyword_learnedKeywords', {
 				indices: ['userId']

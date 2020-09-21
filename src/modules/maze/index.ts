@@ -12,7 +12,7 @@ export default class extends Module {
 	@autobind
 	public install() {
 		if (config.mazeAutoPostEnabled) {
-		    this.post();
+			this.post();
 			setInterval(this.post, 1000 * 60 * 3);
 		}
 

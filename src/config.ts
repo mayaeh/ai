@@ -10,6 +10,7 @@ type Config = {
 	reversiEnabled: boolean;
 	chartEnabled: boolean;
 	welcomeEnabled: boolean;
+	pollEnabled: boolean;
 	serverMonitoring: boolean;
 	mazeAutoPostEnabled: boolean;
 	versionCheckAutoPostEnabled: boolean;
