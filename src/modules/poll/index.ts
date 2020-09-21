@@ -104,7 +104,11 @@ export default class extends Module {
 			genItem(undefined, getKeyword),
 		];
 
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		const note = await this.ai.post({
+			visibility: visibility,
 			text: poll[1],
 			poll: {
 				choices,
@@ -153,14 +157,19 @@ export default class extends Module {
 			}
 		}
 
+		let visibility = config.defaultVisibility;
+		if (!visibility) visibility = 'public';
+
 		if (mostVotedChoice.votes === 0) {
 			this.ai.post({ // TODO: Extract serif
+				visibility: visibility,
 				text: '投票はありませんでした',
 				renoteId: noteId,
 			});
 		} else {
 			this.ai.post({ // TODO: Extract serif
 				cw: `${title}アンケートの結果発表です！`,
+				visibility: visibility,
 				text: `結果は${mostVotedChoice.votes}票を獲得した「${mostVotedChoice.text}」でした！`,
 				renoteId: noteId,
 			});
