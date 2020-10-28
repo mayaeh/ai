@@ -173,6 +173,7 @@ export default class extends Module {
 		} else if (mostVotedChoices.length === 1) {
 			this.ai.post({ // TODO: Extract serif
 				cw: `${title}アンケートの結果発表です！`,
+				visibility: visibility,
 				text: `結果は${mostVotedChoice.votes}票の「${mostVotedChoice.text}」でした！`,
 				renoteId: noteId,
 			});
