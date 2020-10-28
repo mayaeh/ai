@@ -60,42 +60,24 @@ export default class Message {
 	}
 
 	@autobind
-	public async reply(text: string, cw?: string, renote?: string) {
+	public async reply(text: string | null, opts?: {
+		file?: any;
+		cw?: string;
+		renote?: string;
+		immediate?: boolean;
+	}) {
 		if (text == null) return;
 
 		this.ai.log(`>>> Sending reply to ${chalk.underline(this.id)}`);
 
-		await delay(2000);
-
-		if (this.isDm) {
-			return await this.ai.sendMessage(this.messageOrNote.userId, {
-				text: text
-			});
-		} else {
-			return await this.ai.post({
-				visibility: this.messageOrNote.visibility,
-				localOnly: this.messageOrNote.localOnly,
-				copyOnce: this.messageOrNote.copyOnce,
-				replyId: this.messageOrNote.id,
-				text: text,
-				cw: cw,
-				renoteId: renote
-			});
+		if (!opts?.immediate) {
+			await delay(2000);
 		}
-	}
-
-	@autobind
-	public async replyWithFile(text: string, file: any, cw?: string, renote?: string) {
-		if (text == null) return;
-
-		this.ai.log(`>>> Sending reply to ${chalk.underline(this.id)}`);
-
-		await delay(2000);
 
 		if (this.isDm) {
 			return await this.ai.sendMessage(this.messageOrNote.userId, {
 				text: text,
-				fileId: file.id
+				fileId: opts?.file?.id
 			});
 		} else {
 			return await this.ai.post({
@@ -104,9 +86,9 @@ export default class Message {
 				copyOnce: this.messageOrNote.copyOnce,
 				replyId: this.messageOrNote.id,
 				text: text,
-				fileIds: [file.id],
-				cw: cw,
-				renoteId: renote
+				fileIds: opts?.file ? [opts?.file.id] : undefined,
+				cw: opts?.cw,
+				renoteId: opts?.renote
 			});
 		}
 	}

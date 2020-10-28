@@ -1,6 +1,7 @@
 type Config = {
 	host: string;
 	i: string;
+	master?: string;
 	wsUrl: string;
 	apiUrl: string;
 	defaultVisibility: string;
@@ -9,6 +10,7 @@ type Config = {
 	reversiEnabled: boolean;
 	chartEnabled: boolean;
 	welcomeEnabled: boolean;
+	pollEnabled: boolean;
 	serverMonitoring: boolean;
 	mazeAutoPostEnabled: boolean;
 	versionCheckAutoPostEnabled: boolean;
