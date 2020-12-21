@@ -2,8 +2,8 @@ export type User = {
 	id: string;
 	name: string;
 	username: string;
-	host: string;
-	isFollowing: boolean;
+	host?: string | null;
+	isFollowing?: boolean;
 	isBot: boolean;
 	isAdmin: boolean;
 	isModerator: boolean;
