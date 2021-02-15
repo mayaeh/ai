@@ -15,6 +15,7 @@ Misskey用の日本語Botです。
 	"i": "藍として動かしたいアカウントのアクセストークン",
 	"master": "管理者のユーザー名(オプション)",
 	"defaultVisibility": "投稿の公開範囲 (public, followers, home)",
+	"notingEnabled": "ランダムにノートを投稿する機能を無効にする場合は false を入れる",
 	"keywordEnabled": "キーワードを覚える機能 (MeCab が必要) を有効にする場合は true を入れる (無効にする場合は false)",
 	"keywordInterval": "キーワードを覚える間隔 (分, デフォルト60分)",
 	"chartEnabled": "チャート機能を無効化する場合は false を入れてください",

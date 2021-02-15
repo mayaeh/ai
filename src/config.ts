@@ -8,6 +8,7 @@ type Config = {
 	keywordEnabled: boolean;
 	keywordInterval?: number;
 	reversiEnabled: boolean;
+	notingEnabled: boolean;
 	chartEnabled: boolean;
 	welcomeEnabled: boolean;
 	pollEnabled: boolean;
