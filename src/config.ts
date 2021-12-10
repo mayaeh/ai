@@ -17,6 +17,8 @@ type Config = {
 	versionCheckAutoPostEnabled: boolean;
 	mecab?: string;
 	mecabDic?: string;
+	mecabNeologd?: boolean;
+	welcomeLocal?: boolean;
 };
 
 const config = require('../config.json');

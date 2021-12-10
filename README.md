@@ -26,10 +26,15 @@ Misskey用の日本語Botです。
 	"mazeAutoPostEnabled": "藍が迷路を毎日自動で投稿する機能を有効にする場合は true を入れる (無効にする場合は false)",
 	"versionCheckAutoPostEnabled": "バージョンアップ自動通知の機能を有効にする場合は true を入れる (無効にする場合は false)",
 	"mecab": "MeCab のインストールパス (ソースからインストールした場合、大体は /usr/local/bin/mecab)",
-	"mecabDic": "MeCab の辞書ファイルパス (オプション)"
+	"mecabDic": "MeCab の辞書ファイルパス (オプション)",
+	"mecabNeologd": "MeCabの辞書に mecab-ipadic-NEologd を使用している場合は true にすると良いかも"
 }
 ```
 `yarn install` して `yarn build` して `yarn start` すれば起動できます
+
+Dockerの場合は最初に `memory/memory.json` に空ファイルを作っておく必要がある
+
+Dockerイメージはここにある https://hub.docker.com/r/mei23/ia/
 
 ## フォント
 一部の機能にはフォントが必要です。藍にはフォントは同梱されていないので、ご自身でフォントをインストールディレクトリに`font.ttf`という名前で設置してください。
