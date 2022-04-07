@@ -2,7 +2,7 @@
 
 export default {
 	core: {
-		setNameOk: name => `わかりました。これからは${name}と呼びますね！`,
+		setNameOk: name => `わかりました。これからは${name}と呼びます！`,
 
 		san: 'さん付けした方がいいですか？',
 
@@ -368,17 +368,17 @@ export default {
 	},
 
 	server: {
-		cpu: 'サーバーの負荷が高そうです。大丈夫でしょうか...？'
+		cpu: 'サーバーの負荷が高そうです。少し落ち着いてください！'
 	},
 
 	maze: {
-		post: '今日の迷路です！ #AiMaze',
-		foryou: '描きました！'
+		post: '今日の迷路ですよ！ #AiMaze',
+		foryou: '描きましたよ！'
 	},
 
 	chart: {
-		post: 'インスタンスの投稿数です！',
-		foryou: '描きました！'
+		post: 'インスタンスの投稿数ですよ！',
+		foryou: '描きましたよ！'
 	},
 
 	sleepReport: {
