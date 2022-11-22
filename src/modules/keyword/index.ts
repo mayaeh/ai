@@ -4,6 +4,8 @@ import Module from '@/module';
 import config from '@/config';
 import serifs from '@/serifs';
 import { mecab } from './mecab';
+import Message from '@/message';
+import NeologdNormalizer from 'neologd-normalizer';
 
 function kanaToHira(str: string) {
 	return str.replace(/[\u30a1-\u30f6]/g, match => {
@@ -30,7 +32,9 @@ export default class extends Module {
 
 		setInterval(this.learn, 1000 * 60 * (config.keywordInterval || 60));
 
-		return {};
+		return {
+			mentionHook: this.mentionHook,
+		};
 	}
 
 	@autobind
@@ -41,13 +45,19 @@ export default class extends Module {
 
 		const interestedNotes = tl.filter(note =>
 			note.userId !== this.ai.account.id &&
-			note.text != null &&
+			note.text != null && note.text.length > 10 &&
 			note.cw == null);
 
 		let keywords: string[][] = [];
 
 		for (const note of interestedNotes) {
-			const tokens = await mecab(note.text, config.mecab, config.mecabDic);
+			let text = note.text;
+			if (config.mecabNeologd) {
+				text = NeologdNormalizer.normalize(text);
+			}
+
+			const tokens = await mecab(text, config.mecab, config.mecabDic);
+			if (tokens.length < 3) continue;
 			const keywordsInThisNote = tokens.filter(token => token[2] == '固有名詞' && token[8] != null);
 			keywords = keywords.concat(keywordsInThisNote);
 		}
@@ -77,5 +87,18 @@ export default class extends Module {
 		this.ai.post({
 			text: text
 		});
+	}
+
+	@autobind
+	private async mentionHook(msg: Message) {
+		if (!msg.or(['/learn']) || msg.user.username !== config.master) {
+			return false;
+		} else {
+			this.log('Manualy learn requested');
+		}
+
+		this.learn();
+
+		return true;
 	}
 }

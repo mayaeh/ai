@@ -25,6 +25,7 @@ export default class extends Module {
 			setTimeout(() => {
 				this.ai.api('notes/create', {
 					visibility: visibility,
+					localOnly: !!config.welcomeLocal,
 					text: '新規さんを見つけました',
 					renoteId: note.id
 				});
