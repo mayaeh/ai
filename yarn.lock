@@ -745,9 +745,10 @@ ts-node@10.9.1:
     v8-compile-cache-lib "^3.0.1"
     yn "3.1.1"
 
-"twemoji-parser@git+https://github.com/mei23/twemoji-parser.git#15.0.1":
-  version "15.0.1"
-  resolved "git+https://github.com/mei23/twemoji-parser.git#d374b2f54efaf3ecf21948daecf851b69c9a7d62"
+"twemoji-parser@git+https://github.com/mei23/twemoji-parser.git#15.0.2":
+  version "15.0.2"
+  uid "3d4dedcfd0a7528ed05fe7d340eb3e7f47761eac"
+  resolved "git+https://github.com/mei23/twemoji-parser.git#3d4dedcfd0a7528ed05fe7d340eb3e7f47761eac"
 
 typescript@4.9.5:
   version "4.9.5"
