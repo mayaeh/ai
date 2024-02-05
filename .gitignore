@@ -5,4 +5,17 @@ memory.json
 memory/
 data
 font.ttf
+
+# Ignore yarn log files
 yarn-error.log
+yarn-debug.log
+
+# From https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+

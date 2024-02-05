@@ -1,8 +1,8 @@
 {
 	"_v": "1.5.0-ia3",
 	"main": "./built/index.js",
-	"engines" : { 
-		"node" : ">=14.17.0"
+	"engines": {
+		"node": ">=14.17.0"
 	},
 	"scripts": {
 		"start": "node ./built",
@@ -41,5 +41,6 @@
 	},
 	"_moduleAliases": {
 		"@": "built"
-	}
+	},
+	"packageManager": "yarn@4.1.0"
 }
