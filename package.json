@@ -9,6 +9,7 @@
 		"build": "tsc"
 	},
 	"dependencies": {
+		"@twemoji/parser": "15.0.0",
 		"@types/chalk": "2.2.0",
 		"@types/lokijs": "1.5.10",
 		"@types/node": "20.11.25",
@@ -35,7 +36,6 @@
 		"seedrandom": "3.0.5",
 		"timeout-as-promise": "1.0.0",
 		"ts-node": "10.9.1",
-		"@twemoji/parser": "15.0.0",
 		"typescript": "5.4.2",
 		"ws": "8.16.0"
 	},

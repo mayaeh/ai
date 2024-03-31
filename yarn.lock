@@ -128,6 +128,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@twemoji/parser@npm:15.0.0":
+  version: 15.0.0
+  resolution: "@twemoji/parser@npm:15.0.0"
+  checksum: 10c0/288d202e3c7d075eb724bc8eb02e572271c14cd611c15bc54921da227ed81b123003e504fbd95a49969784df55b732bcc1f769829d0791c09be54681e458c4a0
+  languageName: node
+  linkType: hard
+
 "@types/chalk@npm:2.2.0":
   version: 2.2.0
   resolution: "@types/chalk@npm:2.2.0"
@@ -153,12 +160,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:20.11.5":
+"@types/node@npm:*":
   version: 20.11.5
   resolution: "@types/node@npm:20.11.5"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10c0/6d18cec852f5cfbed3ec42b5c01c026e7a3f9da540d6e3d6738d4cee9979fb308cf27b6df7ba40a6553e7bc82e678f0ef53ba6e6ad52e5b86bd97b7783c2a42c
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:20.11.25":
+  version: 20.11.25
+  resolution: "@types/node@npm:20.11.25"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10c0/3a65a0469309d503e572a3198d81c9248876236b1bcc0c9943e995cfa536df7ce9a9302638258984877420d1613167a8a82dbfb3a92197319fb79ebebf9abc83
   languageName: node
   linkType: hard
 
@@ -185,10 +201,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/seedrandom@npm:3.0.4":
-  version: 3.0.4
-  resolution: "@types/seedrandom@npm:3.0.4"
-  checksum: 10c0/955dc5d2cfa7f71516dfe0662bd762d849ed18dae196c688c7e0181af9a02d21372e8ff4ba955dfaed32cc3d0d41d1e940fd38e65080d00fc3dc95191e8034e7
+"@types/seedrandom@npm:3.0.5":
+  version: 3.0.5
+  resolution: "@types/seedrandom@npm:3.0.5"
+  checksum: 10c0/0adc2e0a3ddc8f94cfae459cd060ca5bc0f46afd54223c9410991abcf9db65172f56e580028fa91f5c7aa47b7f66535b640032033c23b44d4f66deee8446f1b9
   languageName: node
   linkType: hard
 
@@ -206,12 +222,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ws@npm:8.5.4":
-  version: 8.5.4
-  resolution: "@types/ws@npm:8.5.4"
+"@types/ws@npm:8.5.10":
+  version: 8.5.10
+  resolution: "@types/ws@npm:8.5.10"
   dependencies:
     "@types/node": "npm:*"
-  checksum: 10c0/dd8bde7d69296037b5053d9c644ce3a86a988e6cb8a632e36f5040e9e274c8879a10c13ac7fe163e4eb11a85f5b8c46fe6ce5f257b80cc93118494336f4e26c6
+  checksum: 10c0/e9af279b984c4a04ab53295a40aa95c3e9685f04888df5c6920860d1dd073fcc57c7bd33578a04b285b2c655a0b52258d34bee0a20569dca8defb8393e1e5d29
   languageName: node
   linkType: hard
 
@@ -1140,7 +1156,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:2.6.9, node-fetch@npm:^2.6.5":
+"node-fetch@npm:2.6.11":
+  version: 2.6.11
+  resolution: "node-fetch@npm:2.6.11"
+  dependencies:
+    whatwg-url: "npm:^5.0.0"
+  peerDependencies:
+    encoding: ^0.1.0
+  peerDependenciesMeta:
+    encoding:
+      optional: true
+  checksum: 10c0/3ec847ca43f678d07b80abfd85bdf06523c2554ee9a494c992c5fc61f5d9cde9f9f16aa33ff09a62f19eee9d54813b8850d7f054cdfee8b2daf789c57f8eeaea
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:^2.6.5":
   version: 2.6.9
   resolution: "node-fetch@npm:2.6.9"
   dependencies:
@@ -1335,16 +1365,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@twemoji/parser": "npm:15.0.0"
     "@types/chalk": "npm:2.2.0"
     "@types/lokijs": "npm:1.5.10"
-    "@types/node": "npm:20.11.5"
+    "@types/node": "npm:20.11.25"
     "@types/node-fetch": "npm:3.0.3"
     "@types/promise-retry": "npm:1.1.3"
     "@types/random-seed": "npm:0.3.3"
-    "@types/seedrandom": "npm:3.0.4"
+    "@types/seedrandom": "npm:3.0.5"
     "@types/twemoji-parser": "npm:13.1.3"
     "@types/uuid": "npm:9.0.7"
-    "@types/ws": "npm:8.5.4"
+    "@types/ws": "npm:8.5.10"
     autobind-decorator: "npm:2.4.0"
     canvas: "npm:2.11.2"
     chalk: "npm:4.1.2"
@@ -1354,16 +1385,15 @@ __metadata:
     misskey-reversi: "npm:0.0.5"
     module-alias: "npm:2.2.2"
     neologd-normalizer: "npm:0.0.3"
-    node-fetch: "npm:2.6.9"
+    node-fetch: "npm:2.6.11"
     promise-retry: "npm:2.0.1"
     random-seed: "npm:0.3.0"
     reconnecting-websocket: "npm:4.4.0"
     seedrandom: "npm:3.0.5"
     timeout-as-promise: "npm:1.0.0"
     ts-node: "npm:10.9.1"
-    twemoji-parser: "git+https://github.com/mei23/twemoji-parser.git#15.0.2"
-    typescript: "npm:4.9.5"
-    ws: "npm:8.12.0"
+    typescript: "npm:5.4.2"
+    ws: "npm:8.16.0"
   languageName: unknown
   linkType: soft
 
@@ -1645,30 +1675,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"twemoji-parser@git+https://github.com/mei23/twemoji-parser.git#15.0.2":
-  version: 15.0.2
-  resolution: "twemoji-parser@https://github.com/mei23/twemoji-parser.git#commit=3d4dedcfd0a7528ed05fe7d340eb3e7f47761eac"
-  checksum: 10c0/0d3fcd53fe6b85e929d247ee48b365ee0eae28a33c038f79a215c817a89025f78d934950ce24f0174914f7038e6a87fc850901eb4492a80d939ce4d3ba2861b6
-  languageName: node
-  linkType: hard
-
-"typescript@npm:4.9.5":
-  version: 4.9.5
-  resolution: "typescript@npm:4.9.5"
+"typescript@npm:5.4.2":
+  version: 5.4.2
+  resolution: "typescript@npm:5.4.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/5f6cad2e728a8a063521328e612d7876e12f0d8a8390d3b3aaa452a6a65e24e9ac8ea22beb72a924fd96ea0a49ea63bb4e251fb922b12eedfb7f7a26475e5c56
+  checksum: 10c0/583ff68cafb0c076695f72d61df6feee71689568179fb0d3a4834dac343df6b6ed7cf7b6f6c801fa52d43cd1d324e2f2d8ae4497b09f9e6cfe3d80a6d6c9ca52
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>":
-  version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
+"typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>":
+  version: 5.4.2
+  resolution: "typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/e3333f887c6829dfe0ab6c1dbe0dd1e3e2aeb56c66460cb85c5440c566f900c833d370ca34eb47558c0c69e78ced4bfe09b8f4f98b6de7afed9b84b8d1dd06a1
+  checksum: 10c0/fcf6658073d07283910d9a0e04b1d5d0ebc822c04dbb7abdd74c3151c7aa92fcddbac7d799404e358197222006ccdc4c0db219d223d2ee4ccd9e2b01333b49be
   languageName: node
   linkType: hard
 
@@ -1795,9 +1818,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:8.12.0":
-  version: 8.12.0
-  resolution: "ws@npm:8.12.0"
+"ws@npm:8.16.0":
+  version: 8.16.0
+  resolution: "ws@npm:8.16.0"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ">=5.0.2"
@@ -1806,7 +1829,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 10c0/2a84d769be015f3644a99a33c1b4c1c268b97315a8387067c242f26ab7ac1f655640220c23ddcbd2f7911649cd00478aaafbb4dff073f0b75f3531ebabd7cced
+  checksum: 10c0/a7783bb421c648b1e622b423409cb2a58ac5839521d2f689e84bc9dc41d59379c692dd405b15a997ea1d4c0c2e5314ad707332d0c558f15232d2bc07c0b4618a
   languageName: node
   linkType: hard
 
